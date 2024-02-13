@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Website</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #2C003E; /* Changed background to dark neon color */
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .container {
+    padding: 50px;
+    position: relative; /* Added relative positioning */
+  }
+
+  #main-text {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(30, end); /* Reduced typing animation duration to 3 seconds */
+  }
+
+  #video-container {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    position: relative;
+    border: 4px solid #4CFFEB; /* Added neon border for the video container */
+    box-shadow: 0 0 20px #4CFFEB; /* Added neon glow for the video container */
+  }
+
+  #video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Typing animation for main text */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  #play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 24px;
+    z-index: 10;
+  }
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="main-text">I love you babee tu nahi tar kon nahi !!</h1>
+    <div id="video-container">
+      <video id="bg-video" muted onended="redirect()">
+        <source src="images/myvideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button id="play-button" onclick="startVideo()">Play</button>
+    </div>
+  </div>
+
+  <script>
+    var video = document.getElementById("bg-video");
+
+    // Function to start the video
+    function startVideo() {
+      video.muted = false; // Unmute the video
+      video.play(); // Start playing the video
+      document.getElementById("play-button").style.display = "none"; // Hide the play button
+      document.getElementById("main-text").style.display = "none"; // Hide the text
+    }
+
+    // Function to redirect after video completion
+    function redirect() {
+      window.location.href = "blogs_photos.html"; // Redirect to the next website
+    }
+
+    // Show the video container after 3 seconds (3000 milliseconds)
+    setTimeout(function() {
+      document.getElementById("video-container").style.display = "block";
+    }, 3000);
+  </script>
+</body>
+</html>
